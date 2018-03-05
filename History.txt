@@ -1,6 +1,23 @@
 VERSION HISTORY
 
 
+v11.2
+---------------------------------------------------------------------
+
+- some improvements in AMD GPU kernels, it can increase hashrate a bit in some cases.
+- reduced some delays, it will cause a bit less stale shares.
+
+
+
+v11.1
+---------------------------------------------------------------------
+
+- added SSL support with pool certificate verification, it significantly improves security, use "ssl://" prefix for pools that support SSL encryption.
+- added "-checkcert" option.
+- EthMan updated.
+
+
+
 v11.0
 ---------------------------------------------------------------------
 
