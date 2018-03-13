@@ -5,8 +5,8 @@ Claymore's Dual Ethereum + Decred/Siacoin/Lbry/Pascal/Blake2s/Keccak AMD+NVIDIA 
 
 LINKS:
 
-GOOGLE: https://drive.google.com/open?id=0B69wv2iqszefdFZUV2toUG5HdlU
 MEGA: https://mega.nz/#F!O4YA2JgD!n2b4iSHQDruEsYUvTQP5_w
+GOOGLE: https://drive.google.com/open?id=0B69wv2iqszefdFZUV2toUG5HdlU
 
 
 
@@ -136,8 +136,10 @@ COMMAND LINE OPTIONS:
 
 -dcri	Decred/Siacoin/Lbry/Pascal intensity, or Ethereum fine-tuning value in ETH-only ASM mode. Default value is 30, you can adjust this value to get the best Decred/Siacoin/Lbry mining speed without reducing Ethereum mining speed. 
 	You can also specify values for every card, for example "-dcri 30,100,50".
-	You can change the intensity in runtime with "+" and "-" keys and check current statistics with "s" key.
+	You can change the intensity in runtime with "+" and "-" keys and also use "x" key to select single GPU for intensity adjustment.
 	For example, by default (-dcri 30) 390 card shows 29MH/s for Ethereum and 440MH/s for Decred. Setting -dcri 70 causes 24MH/s for Ethereum and 850MH/s for Decred.
+	Use this option in ETH-only ASM mode for fine tuning, read "FINE-TUNING" section below.
+	If you did not specify "-dcri" option in ETH-only ASM mode, miner will detect best -dcri values automatically, you can also press "z" key to do it.
 
 -dcrt	Time period between Decred/Siacoin HTTP requests for new job, in seconds. Default value is 5 seconds.
 
@@ -365,6 +367,8 @@ ETH-only mode when ASM algorithm is used (enabled by default): change "-dcri" op
 NOTE 1: if GPU throttles (overheated) or if you overclocked GPU, best "-dcri" value will be different.
 NOTE 2: speed peak can be rather short, so change "-dcri" value slowly, one-by-one.
 NOTE 3: best -dcri values for ETH-only mode and dual mode can be different.
+NOTE 4: you can use "x" key to select single GPU for -dcri value adjustment.
+NOTE 5: if you did not specify "-dcri" option in ETH-only ASM mode, miner will detect best -dcri values automatically, you can also press "z" key to do it.
 
 
 
