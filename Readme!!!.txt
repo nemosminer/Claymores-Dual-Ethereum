@@ -87,6 +87,8 @@ COMMAND LINE OPTIONS:
 	Check "FINE-TUNING" section below for additional notes.
 	NEW: added alternative assembler kernels for Tahiti, Tonga, Ellesmere, Baffin cards for ETH-only mode. Use them if you get best speed at "-dcri 1" (i.e. you cannot find speed peak), use "-asm 2" option to enable this mode.
 
+-oldkernels (AMD cards only) specify "-oldkernels 1" to use old-style GPU kernels from v10, they can be more stable for hard OC and custom BIOSes.
+
 -ethi	Ethereum intensity. Default value is 8, you can decrease this value if you don't want Windows to freeze or if you have problems with stability. The most low GPU load is "-ethi 0".
 	Also "-ethi" now can set intensity for every card individually, for example "-ethi 1,8,6".
 	You can also specify negative values, for example, "-ethi -8192", it exactly means "global work size" parameter which is used in official miner.

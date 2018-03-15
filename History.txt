@@ -1,6 +1,14 @@
 VERSION HISTORY
 
 
+v11.5
+---------------------------------------------------------------------
+
+- added "-oldkernels" option (AMD GPUs only), you can try "-oldkernels 1" to use old-style GPU kernels from v10, they can be more stable for hard OC and custom BIOSes.
+- a bit reduced stale shares for Nvidia GPUs.
+
+
+
 v11.4
 ---------------------------------------------------------------------
 
