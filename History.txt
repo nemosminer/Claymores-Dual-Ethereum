@@ -1,6 +1,35 @@
 VERSION HISTORY
 
 
+v11.7
+---------------------------------------------------------------------
+
+- added temperature management and overclock support for recent Nvidia cards in Windows: "-tt", "-powlim", "-cclock", "-mclock", "-tt", "-fanmax", "-fanmin" options are supported for Nvidia too.
+- now "y" key also disables CrossFire.
+- added "-y" option.
+- fixed issue with miner restart that was required sometimes to apply overclock settings for AMD cards.
+- fixed issue with rejected shares when "-esm 3" option is used.
+- Linux version: fixed issue with remote management.
+- some changes in watchdog routines to improve ability to restart miner after various OpenCL fails.
+- a few minor bug fixes and improvements.
+
+
+
+v11.6
+---------------------------------------------------------------------
+
+- improved hashrate for weak Nvidia cards by about 1%.
+- zero devfee for 3GB cards in Windows 10, same as for all 2GB cards.
+- applied some tricks to increase available memory for 3GB cards in Windows 10 so you can mine ETH a bit longer.
+- now you can press "y" key to turn on "Compute Mode" in AMD drivers for all cards (Windows only).
+- Linux version: removed openssl library dependency.
+- improved "-logfile" option, now you can use it to specify a folder for log files, use slash at the end to do it, for example, "-logfile logs\".
+- added "-epoolsfile" and "-dpoolsfile" options.
+- remote management: now "miner_getstat2" command also returns PCI bus index for every GPU.
+- a few minor bug fixes and improvements.
+
+
+
 v11.5
 ---------------------------------------------------------------------
 
