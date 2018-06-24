@@ -36,6 +36,7 @@ Same as "miner_getstat1" but also appends additional information:
 - DCR accepted shares for every GPU.
 - DCR rejected shares for every GPU.
 - DCR invalid shares for every GPU.
+- PCI bus index for every GPU.
 
 
 
