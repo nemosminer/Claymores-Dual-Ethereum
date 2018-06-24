@@ -169,11 +169,11 @@ COMMAND LINE OPTIONS:
 -logsmaxsize	maximal size of debug log files, in MB. At every start the miner checks all files in its folder, selects all files that contain "_log.txt" string and removes oldest files if summary files size is larger than specified value. 
 	Specify "-logsmaxsize 0" to cancel old logs removal. Default value is 1000 (i.e. about 1GB of log files are allowed).
 
--nofee	set "1" to cancel my developer fee at all. In this mode some optimizations are disabled so mining speed will be slower by about 4%. 
-	By enabling this mode, I will lose 100% of my earnings, you will lose only 2-3% of your earnings.
+-nofee	set "1" to cancel my developer fee at all. In this mode some optimizations are disabled so mining speed will be slower by about 3%. 
+	By enabling this mode, I will lose 100% of my earnings, you will lose only about 2% of your earnings.
 	So you have a choice: "fastest miner" or "completely free miner but a bit slower".
 	If you want both "fastest" and "completely free" you should find some other miner that meets your requirements, just don't use this miner instead of claiming that I need 
-	to cancel/reduce developer fee, saying that 1-2% developer fee is too much for this miner and so on.
+	to cancel/reduce developer fee, saying that 1% developer fee is too much for this miner and so on.
 
 -benchmark	benchmark mode, specify "-benchmark 1" to see hashrate for your hardware. You can also specify epoch number for benchmark, for example, "-benchmark 110".
 
@@ -270,6 +270,8 @@ COMMAND LINE OPTIONS:
 -dpoolsfile	failover filename for seconds coin, default value is "dpools.txt".
 
 -y	enables Compute Mode and disables CrossFire for AMD cards. "-y 1" works as pressing "y" key when miner starts. This option works in Windows only.
+
+-showdiff	shows difficulty for every ETH share and also displays maximal found share difficulty when you press "s" key.
 
 
 
@@ -501,10 +503,10 @@ This miner does not use HTTP protocol, it uses Stratum directly. So you should c
   Usually I use "ethpool" pool for tests.
 
 - I see only one card via Remote Desktop Connection.
-  It's a problem of RDC, use TeamViewer or some other remote access software.
+  It's a problem of RDC, use TeamViewer or some other remote access software. Or try to use latest version of the miner.
 
 - I see only one card instead of two in temperature management info.
-  Disable CrossFire, don't use Remote Desktop Connection.
+  Disable CrossFire, don't use Remote Desktop Connection. Or try to use latest version of the miner.
 
 - Miner works in ETH-only mode but crashes in dual mode.
   Dual mode requires more power, so make sure PSU power is enough and check GPU clocks if you OC'ed them.

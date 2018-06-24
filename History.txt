@@ -1,6 +1,16 @@
 VERSION HISTORY
 
 
+v11.8
+---------------------------------------------------------------------
+
+- fixed issue with missed GPU temperatures when miner is started via Remote Desktop Connection (RDC).
+- Linux version: removed libcurl library dependency.
+- added "-showdiff" option.
+- a few minor bug fixes and improvements.
+
+
+
 v11.7
 ---------------------------------------------------------------------
 
