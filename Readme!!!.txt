@@ -271,7 +271,7 @@ COMMAND LINE OPTIONS:
 
 -y	enables Compute Mode and disables CrossFire for AMD cards. "-y 1" works as pressing "y" key when miner starts. This option works in Windows only.
 
--showdiff	shows difficulty for every ETH share and also displays maximal found share difficulty when you press "s" key.
+-showdiff	use "-showdiff 1" to show difficulty for every ETH share and to display maximal found share difficulty when you press "s" key. Default value is "0".
 
 
 
@@ -352,6 +352,9 @@ Ethereum-only mining:
 
  ethpool:
 	EthDcrMiner64.exe -epool us1.ethpool.org:3333 -ewal 0xD69af2A796A737A103F12d2f0BCC563a13900E6F -epsw x
+
+ sparkpool:
+	EthDcrMiner64.exe -epool eu.sparkpool.com:3333 -ewal 0xD69af2A796A737A103F12d2f0BCC563a13900E6F -epsw x
 
  f2pool:
 	EthDcrMiner64.exe -epool eth.f2pool.com:8008 -ewal 0xd69af2a796a737a103f12d2f0bcc563a13900e6f -epsw x -eworker rig1
