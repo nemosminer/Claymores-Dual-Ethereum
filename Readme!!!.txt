@@ -34,7 +34,7 @@ This version is POOL/SOLO for Ethereum, POOL for Decred, POOL/SOLO for Siacoin, 
 
 For old AMD cards, Catalyst (Crimson) 15.12 is required for best performance and compatibility.
 For AMD 4xx/5xx cards (Polaris) you can use any recent drivers.
-For AMD cards, set the following environment variables, especially if you have 2GB cards:
+For AMD cards, set the following environment variables, especially if you have 2...4GB cards:
 
 GPU_FORCE_64BIT_PTR 0
 GPU_MAX_HEAP_SIZE 100
@@ -45,11 +45,11 @@ GPU_SINGLE_ALLOC_PERCENT 100
 For multi-GPU systems, set Virtual Memory size in Windows at least 16 GB (better more):
 "Computer Properties / Advanced System Settings / Performance / Advanced / Virtual Memory".
 
-This miner is free-to-use, however, current developer fee is 1% for Ethereum-only mining mode (-mode 1) and 1.5% for dual mining mode (-mode 0), every hour the miner mines for 36 or 54 seconds for developer. 
-For all 2GB cards and 3GB cards in Windows10 (they cannot mine ETH/ETC anymore) devfee is 0%, so on these cards you can mine all ETH forks without devfee, this miner is completely free in this case.
-If some cards are 2GB and some >2GB, 2GB cards still mine for you during devfee time, only cards that have more than 2GB memory will be used for devfee mining. Same for 3GB cards in Windows10. Miner displays appropriate messages during startup.
+This miner is free-to-use, however, current developer fee is 1%, every hour the miner mines for 36 seconds for developer. 
+For all 2GB cards and 3GB cards devfee is 0%, so on these cards you can mine all ETH forks without devfee, this miner is completely free in this case.
+If some cards are 2...3GB and some >3GB, 2...3GB cards still mine for you during devfee time, only cards that have more than 3GB memory will be used for devfee mining. Miner displays appropriate messages during startup.
 Second coin (Decred/Siacoin/Lbry/Pascal/Blake2s/Keccak) is mined without developer fee.
-So the developer fee is 0...1.5%, if you don't agree with the dev fee - don't use this miner, or use "-nofee" option.
+So the developer fee is 0...1%, if you don't agree with the dev fee - don't use this miner, or use "-nofee" option.
 Attempts to cheat and remove dev fee will cause a bit slower mining speed (same as "-nofee 1") though miner will show same hashrate. 
 Miner cannot just stop if cheat is detected because creators of cheats would know that the cheat does not work and they would find new tricks. If miner does not show any errors or slowdowns, they are happy.
 
@@ -316,10 +316,10 @@ Dual mining:
 	Read dwarfpool FAQ for additional options, for example, you can setup email notifications if you specify your email as password.
 
  nanopool Ethereum+Siacoin:
-EthDcrMiner64.exe -epool eu1.nanopool.org:9999 -ewal YOUR_ETH_WALLET/YOUR_WORKER/YOUR_EMAIL -epsw x -dpool "http://sia-eu1.nanopool.org:9980/miner/header?address=YOUR_SIA_WALLET&worker=YOUR_WORKER_NAME&email=YOUR_EMAIL" -dcoin sia
+EthDcrMiner64.exe -epool eth-eu1.nanopool.org:9999 -ewal YOUR_ETH_WALLET/YOUR_WORKER/YOUR_EMAIL -epsw x -dpool "http://sia-eu1.nanopool.org:9980/miner/header?address=YOUR_SIA_WALLET&worker=YOUR_WORKER_NAME&email=YOUR_EMAIL" -dcoin sia
 
  nanopool Ethereum+Siacoin(Stratum):
-EthDcrMiner64.exe -epool eu1.nanopool.org:9999 -ewal YOUR_ETH_WALLET/YOUR_WORKER/YOUR_EMAIL -epsw x -dpool stratum+tcp://sia-eu1.nanopool.org:7777 -dwal YOUR_SIA_WALLET/YOUR_WORKER/YOUR_EMAIL -dcoin sia
+EthDcrMiner64.exe -epool eth-eu1.nanopool.org:9999 -ewal YOUR_ETH_WALLET/YOUR_WORKER/YOUR_EMAIL -epsw x -dpool stratum+tcp://sia-eu1.nanopool.org:7777 -dwal YOUR_SIA_WALLET/YOUR_WORKER/YOUR_EMAIL -dcoin sia
 
  nicehash Ethereum+Decred:
 EthDcrMiner64.exe -epool stratum+tcp://daggerhashimoto.eu.nicehash.com:3353 -ewal 1LmMNkiEvjapn5PRY8A9wypcWJveRrRGWr -epsw x -esm 3 -allpools 1 -estale 0 -dpool stratum+tcp://decred.eu.nicehash.com:3354 -dwal 1LmMNkiEvjapn5PRY8A9wypcWJveRrRGWr
@@ -360,7 +360,7 @@ Ethereum-only mining:
 	EthDcrMiner64.exe -epool eth.f2pool.com:8008 -ewal 0xd69af2a796a737a103f12d2f0bcc563a13900e6f -epsw x -eworker rig1
 
  nanopool:
-	EthDcrMiner64.exe -epool eu1.nanopool.org:9999 -ewal 0xd69af2a796a737a103f12d2f0bcc563a13900e6f -epsw x -eworker rig1
+	EthDcrMiner64.exe -epool eth-eu1.nanopool.org:9999 -ewal 0xd69af2a796a737a103f12d2f0bcc563a13900e6f -epsw x -eworker rig1
 
  nicehash:
 	EthDcrMiner64.exe -epool stratum+tcp://daggerhashimoto.eu.nicehash.com:3353 -ewal 1LmMNkiEvjapn5PRY8A9wypcWJveRrRGWr -epsw x -esm 3 -allpools 1 -estale 0
@@ -429,7 +429,7 @@ TROUBLESHOOTING
 1. Install Catalyst v15.12 for old AMD cards; for Fury, Polaris and Vega cards use latest blockchain drivers.
 2. Disable overclocking.
 3. Set environment variables as described above.
-4. Set Virtual Memory 16 GB.
+4. Set Virtual Memory 16 GB or more.
 5. Reboot computer.
 6. Check hardware, risers.
 7. Set some timeout in .bat file before starting miner at system startup (30sec or even a minute), and try "-ethi 4" to check if it is more stable. It can help if miner is not stable on some system.
@@ -444,10 +444,10 @@ FAQ
 - I cannot mine ETH/ETC with Nvidia 3GB card in Windows 10.
   Windows 10 internally allocates about 20% of GPU memory so applications can use only 80% of GPU memory. Use Windows 7 or Linux. 
 
-- I see 0% devfee for all 2GB and 3GB cards in Windows 10, my rig has some 3GB cards and some 6GB cards, how is the fee calculated in this case?
+- I see 0% devfee for all 2GB and 3GB cards, my rig has some 3GB cards and some 6GB cards, how is the fee calculated in this case?
   During devfee mining 3GB cards still mine for you. How does it work? Miner creates second connection for devfee mining, main connection still works and 3GB cards still find shares for it. 
   You can see these shares in the log file, all devfee shares contain "Devfee:" string, normal shares don't contain this string and 3GB cards can find them during devfee mining as well.
-  Note that devfee mining takes only 36 or 54 seconds per hour so it can take many hours to find normal shares during devfee mining.
+  Note that devfee mining takes only 36 seconds per hour so it can take many hours to find normal shares during devfee mining.
 
 - What is dwarfpool proxy (eth-proxy)?
 Official Ethereum miner does not support Stratum protocol, it supports HTTP protocol only. It causes less profit because of delays.
@@ -500,7 +500,7 @@ This miner does not use HTTP protocol, it uses Stratum directly. So you should c
 
 - Why pool shows less hashrate than miner?
   On my test rigs I use miner with default settings and on pool I see about 4-5% less than miner shows (my hashrate is about 800MH/s if I turn on all rigs). 
-  Miner shows "raw" hashrate, 2% is devfee in dual mode, other 2-3% can be related to the connection quality, current pool status/luck or/and may be something else. 
+  Miner shows "raw" hashrate, 1% is devfee, other 2-3% can be related to the connection quality, current pool status/luck or/and may be something else. 
   Also, from my calculations miner loses about 0.5-1% because it cannot drop current GPU round when it gets new job, it is related to "-ethi" value, so I made it 8 by default instead of 16.
   But if on pool you see 10% less than miner shows all the time - something is wrong with your pool, your connection to internet or your hashrate is low and you did not wait enough time to see average hashrate for 24 hours. 
   Usually I use "ethpool" pool for tests.
@@ -526,9 +526,6 @@ This miner does not use HTTP protocol, it uses Stratum directly. So you should c
 - I mine ETH fork on my 2GB cards. For devfee miner tries to mine ETH and it fails because ETH cannot be mined on 2GB cards.
 - Use "-allcoins exp -allpools 1" options.
 
-- On dual mining, if one of my miners has 6 cards, with 2 dual mining and 4 single mining, is devfee 1% or 2%? 
-  As soon as you enable dual mining, devfee is 2% for all cards. But you can start two miner instances and split cards between them to get 1% on first instance and 2% on second.
-
 - Miner freezes if I put cursor to its window in Windows 10 until any key is pressed. Sometimes miner freezes randomly until any key is pressed.
   You should make some changes in Windows:
   https://superuser.com/questions/555160/windows-command-prompt-freezing-on-focus
@@ -547,8 +544,6 @@ This miner does not use HTTP protocol, it uses Stratum directly. So you should c
 - Miner crashed and I cannot restart it until reboot.
   Often when OpenCL fails, you have to reboot the system, not just restart miner. Sometimes even soft reboot won't work and you have to press Reset button. It is because the fail is at drivers level, Windows does not like such things and drivers too.
 
-- EthMan loses rigs with 12 GPUs.
-  Sometimes systems with 12 GPUs and low-end CPU become slow for remote access, you can see problems with EthMan and other remote management software.
 
 
 FAQ #2:
