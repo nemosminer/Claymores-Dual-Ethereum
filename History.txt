@@ -1,6 +1,37 @@
 VERSION HISTORY
 
 
+
+v14.2
+---------------------------------------------------------------------
+
+- "strap" option: added support for Nvidia 10xx cards, up to 10% speedup for 1050/1060/1070 cards, up to 50% speedup for 1080/1080Ti cards compared to stock BIOS. 
+	Use "-strap 1" ... "-strap 3" values and overclock memory to find the best hashrate.
+- a few minor bug fixes and improvements.
+
+
+
+v14.1
+---------------------------------------------------------------------
+
+- "strap" option: added support for Vega cards, up to 15% speedup compared to stock BIOS. Use "-strap 1" ... "-strap 5" values and overclock memory to find the best hashrate.
+- improved compatibility with AMD 18.x drivers.
+- now miner uses CUDA10 runtime library for Nvidia.
+- a few minor bug fixes and improvements.
+
+
+
+v14.0
+---------------------------------------------------------------------
+
+- Windows only: added ability to apply optimized memory timings (straps) on-the-fly, without flashing VBIOS, up to 25% speedup compared to stock BIOS. Currently only Polaris cards are supported, other cards will be added later. 
+	Drivers 18.x or newer are required. Best straps for Ethereum are included. Check "-strap" and "-driver" options for details.
+- Windows only: added temperature/fan/clocks management for Radeon VII.
+- a few minor bug fixes and improvements.
+- fixed fan control for latest Windows AMD drivers.
+
+
+
 v12.0
 ---------------------------------------------------------------------
 

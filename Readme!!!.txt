@@ -12,6 +12,7 @@ GOOGLE: https://drive.google.com/open?id=0B69wv2iqszefdFZUV2toUG5HdlU
 
 FEATURES:
 
+- Supports applying optimized memory timings (straps) on-the-fly in Windows, without flashing VBIOS (currently Polaris, Vega, Nvidia 10xx cards only), up to 20% speedup. Best straps for Ethereum are included.
 - Supports new "dual mining" mode: mining both Ethereum and Decred/Siacoin/Lbry/Pascal/Blake2s/Keccak at the same time, with no impact on Ethereum mining speed. Ethereum-only mining mode is supported as well.
 - Effective Ethereum mining speed is higher by 3-5% because of a completely different miner code - much less invalid and outdated shares, higher GPU load, optimized OpenCL code, optimized assembler kernels.
 - Supports both AMD and nVidia cards, even mixed.
@@ -272,6 +273,27 @@ COMMAND LINE OPTIONS:
 -y	enables Compute Mode and disables CrossFire for AMD cards. "-y 1" works as pressing "y" key when miner starts. This option works in Windows only.
 
 -showdiff	use "-showdiff 1" to show difficulty for every ETH share and to display maximal found share difficulty when you press "s" key. Default value is "0".
+
+-driver	installs or uninstalls the driver which is required to apply memory timings (straps) and closes miner after it. This option is available for Windows only and requires admin rights to execute, 
+	also you need to disable "Secure Boot" in UEFI BIOS if you use it.
+	Use "-driver install" to install the driver, "-driver uninstall" to uninstall the driver. Since the driver is not signed, miner enables "Test mode" in Windows, you need to reboot to apply it.
+	This option is necessary only if you want to install or uninstall the driver separately, miner anyway will install the driver automatically if "-strap" option is used.
+
+-strap	applies specified memory timings (strap). This option is available for Windows only and requires AMD drivers 18.x or newer (most tests were performed on 19.4.3) for AMD cards, any recent Nvidia drivers for Nvidia cards. 
+	Currently Polaris, Vega and Nvidia 10xx cards are supported, support for other cards will be added later. 
+	Miner has built-in straps database, all straps are separated by memory (4GB or 8GB) and memory type (Samsung, Elpida, Hynix, Micron). 
+	Straps are sorted by intensity, i.e. "-strap 1" supports higher memory clock than "-strap 2", etc. For the best hashrate you must also set high memory clock, so "-strap 1" is a good start point for tests.
+	You can specify just strap index, for example "-strap 1" will apply first strap from database for all Polaris GPUs based on GPU memory size and memory type, miner will show full strap name detected.
+	Or you can specify strap directly in format "POL8S1": "POL" means Polaris, "8" means 8GB, "S" means Samsung memory, "1" means index.
+	Zero index means default strap from VBIOS, i.e. no strap is applied.
+	You can also use "@" character after strap to specify memory clock, it works like "-mclock" but overrides it, for example, "-strap POL4E2@1900". For Nvidia you can also specify delta, for example, "-strap 2@+700".
+	You can also specify values for every card, for example "-strap 1@2100,POL4H3,0".
+	If strap is applied, miner will return old strap and memory clock when miner is closed.
+	The best approach to find best strap is to set "-strap 1,0" (it sets strap #1 for first card and no straps for the rest of GPUs) and then raise memory clock to see what clocks and hashrate you can reach. 
+	Then so the same for strap #2 etc.
+	You can also specify raw strap string (96 characters). Note that single option value means that this strap is applied for all GPUs, use "0" to apply strap on single GPU, 
+	for example "-strap 0,1@2200,0" applies strap #1 and memory clock 2200MHz for second GPU only.
+	NOTE: if specified strap fails, Windows is crashed. After reboot default timings are restored and you can try some different settings.
 
 
 

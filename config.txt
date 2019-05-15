@@ -11,3 +11,5 @@
 #-mode 0
 #-tt 70
 #-asm 0
+#-strap 1
+#-strap 1@2250
