@@ -294,6 +294,9 @@ COMMAND LINE OPTIONS:
 	You can also specify raw strap string (96 characters). Note that single option value means that this strap is applied for all GPUs, use "0" to apply strap on single GPU, 
 	for example "-strap 0,1@2200,0" applies strap #1 and memory clock 2200MHz for second GPU only.
 	NOTE: if specified strap fails, Windows is crashed. After reboot default timings are restored and you can try some different settings.
+	NOTE: Polaris cards have different number of straps (depends on memory type and size). 
+	Vega cards have "-strap 1" ... "-strap 5" values. 
+	Nvidia cards have "-strap 1" ... "-strap 6" values (1...3 are normal straps and 4...6 are low-intensity straps).
 
 
 

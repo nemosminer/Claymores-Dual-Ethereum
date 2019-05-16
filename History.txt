@@ -1,6 +1,14 @@
 VERSION HISTORY
 
 
+v14.3
+---------------------------------------------------------------------
+
+- fixed BSOD issue with Vega cards.
+- improved handling memory timings for Nvidia.
+- "strap" option for Nvidia cards: added "-strap 4"..."-strap 6" options, they have less intensity than straps #1..3 so you can try to use them if you cannot use even "-strap 1" option.
+
+
 
 v14.2
 ---------------------------------------------------------------------
